@@ -56,7 +56,7 @@ public class MyBatisPlusGenerator {
     private static GlobalConfig initGlobalConfig(String projectPath) {
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setOutputDir(projectPath + "/src/main/java");
-        globalConfig.setAuthor("macro");
+        globalConfig.setAuthor("tm");
         globalConfig.setOpen(false);
         globalConfig.setSwagger2(true);
         globalConfig.setBaseResultMap(true);
@@ -92,7 +92,8 @@ public class MyBatisPlusGenerator {
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setModuleName(moduleName);
         packageConfig.setParent(props.getStr("package.base"));
-        packageConfig.setEntity("model");
+        packageConfig.setEntity("mbg.model");
+        packageConfig.setMapper("mbg.mapper");
         return packageConfig;
     }
 
