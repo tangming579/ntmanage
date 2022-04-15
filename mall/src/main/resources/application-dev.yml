@@ -16,3 +16,12 @@ logging:
   level:
     root: info
     com.macro.mall: info
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
+swagger:
+  basic:
+    enable: true     // 启用
+    username: admin
+    password: admin

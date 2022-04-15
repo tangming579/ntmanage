@@ -15,7 +15,7 @@ import java.util.List;
  * @author tm
  * @since 2022-03-22
  */
-public interface PmsBrandMapper extends BaseMapper<PmsBrand> {
+public interface PmsBrandMapper {
     long countByExample(PmsBrandExample example);
 
     int deleteByExample(PmsBrandExample example);

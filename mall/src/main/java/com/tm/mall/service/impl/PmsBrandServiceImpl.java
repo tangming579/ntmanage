@@ -20,7 +20,7 @@ import java.util.List;
  * @since 2022-03-22
  */
 @Service
-public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> implements PmsBrandService {
+public class PmsBrandServiceImpl implements PmsBrandService {
     @Autowired
     private PmsBrandMapper brandMapper;
 

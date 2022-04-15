@@ -13,7 +13,7 @@ import java.util.List;
  * @author tm
  * @since 2022-03-22
  */
-public interface PmsBrandService extends IService<PmsBrand> {
+public interface PmsBrandService {
     List<PmsBrand> listAllBrand();
 
     int createBrand(PmsBrand brand);

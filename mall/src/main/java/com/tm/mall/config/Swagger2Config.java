@@ -5,10 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.AuthorizationScope;
-import springfox.documentation.service.SecurityReference;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -26,19 +23,19 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 //为当前包下controller生成API文档
-                .apis(RequestHandlerSelectors.basePackage("com.macro.mall.tiny.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.tm.mall.controller"))
                 .paths(PathSelectors.any())
-                .build()
+                .build();
                 //添加登录认证
-                .securitySchemes(securitySchemes())
-                .securityContexts(securityContexts());
+//                .securitySchemes(securitySchemes())
+//                .securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("SwaggerUI演示")
-                .description("mall-tiny")
-                .contact("macro")
+                .description("mall")
+                .contact(new Contact("tangming", "github.com/tangming579", "888888"))
                 .version("1.0")
                 .build();
     }
