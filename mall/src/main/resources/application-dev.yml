@@ -15,11 +15,7 @@ logging:
     path: /var/logs
   level:
     root: info
-    com.macro.mall: info
-mybatis:
-  mapper-locations:
-    - classpath:mapper/*.xml
-    - classpath*:com/**/mapper/*.xml
+    com.tm.mall: info
 swagger:
   basic:
     enable: true     // 启用
