@@ -18,7 +18,7 @@ import java.util.List;
 @EnableSwagger2
 public class Swagger2Config {
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -27,8 +27,8 @@ public class Swagger2Config {
                 .paths(PathSelectors.any())
                 .build();
                 //添加登录认证
-//                .securitySchemes(securitySchemes())
-//                .securityContexts(securityContexts());
+                //.securitySchemes(securitySchemes())
+                //.securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
@@ -40,10 +40,10 @@ public class Swagger2Config {
                 .build();
     }
 
-    private List<ApiKey> securitySchemes() {
+    private List<SecurityScheme> securitySchemes() {
         //设置请求头信息
-        List<ApiKey> result = new ArrayList<>();
-        ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header");
+        List<SecurityScheme> result = new ArrayList<>();
+        SecurityScheme apiKey = new SecurityScheme("Authorization", "Authorization", "header", null);
         result.add(apiKey);
         return result;
     }
@@ -55,7 +55,7 @@ public class Swagger2Config {
         return result;
     }
 
-    private SecurityContext getContextByPath(String pathRegex){
+    private SecurityContext getContextByPath(String pathRegex) {
         return SecurityContext.builder()
                 .securityReferences(defaultAuth())
                 .forPaths(PathSelectors.regex(pathRegex))

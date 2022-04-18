@@ -3,6 +3,7 @@ package com.tm.mall.config;
 import com.tm.mall.component.JwtAuthenticationTokenFilter;
 import com.tm.mall.component.RestAuthenticationEntryPoint;
 import com.tm.mall.component.RestfulAccessDeniedHandler;
+import com.tm.mall.dto.AdminUserDetails;
 import com.tm.mall.mbg.model.UmsAdmin;
 import com.tm.mall.mbg.model.UmsPermission;
 import com.tm.mall.service.UmsAdminService;
