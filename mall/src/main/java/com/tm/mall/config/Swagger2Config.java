@@ -12,6 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Configuration
@@ -25,10 +26,10 @@ public class Swagger2Config {
                 //为当前包下controller生成API文档
                 .apis(RequestHandlerSelectors.basePackage("com.tm.mall.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
                 //添加登录认证
-                //.securitySchemes(securitySchemes())
-                //.securityContexts(securityContexts());
+                .securitySchemes(securitySchemes())
+                .securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
@@ -42,10 +43,8 @@ public class Swagger2Config {
 
     private List<SecurityScheme> securitySchemes() {
         //设置请求头信息
-        List<SecurityScheme> result = new ArrayList<>();
-        SecurityScheme apiKey = new SecurityScheme("Authorization", "Authorization", "header", null);
-        result.add(apiKey);
-        return result;
+        ApiKey apiKey = new ApiKey("Authorization", "Authorization", "header", null);
+        return Collections.singletonList(apiKey);
     }
 
     private List<SecurityContext> securityContexts() {
