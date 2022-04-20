@@ -36,5 +36,5 @@ jwt:
   tokenHead: Bearer  #JWT负载中拿到开头
 mybatis:
   mapper-locations:
-    - classpath:mapper/*.xml
+    - classpath:dao/*.xml
     - classpath*:com/**/mapper/*.xml
