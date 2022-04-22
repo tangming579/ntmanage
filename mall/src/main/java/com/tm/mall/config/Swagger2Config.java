@@ -26,10 +26,10 @@ public class Swagger2Config {
                 //为当前包下controller生成API文档
                 .apis(RequestHandlerSelectors.basePackage("com.tm.mall.controller"))
                 .paths(PathSelectors.any())
-                .build()
+                .build();
                 //添加登录认证
-                .securitySchemes(securitySchemes())
-                .securityContexts(securityContexts());
+                //.securitySchemes(securitySchemes())
+                //.securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
