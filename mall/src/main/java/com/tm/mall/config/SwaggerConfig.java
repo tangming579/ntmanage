@@ -5,39 +5,39 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @Configuration
-@EnableSwagger2
-public class Swagger2Config {
+@EnableOpenApi
+public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .select()
                 //为当前包下controller生成API文档
                 .apis(RequestHandlerSelectors.basePackage("com.tm.mall.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
                 //添加登录认证
-                //.securitySchemes(securitySchemes())
-                //.securityContexts(securityContexts());
+                .securitySchemes(securitySchemes())
+                .securityContexts(securityContexts());
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("SwaggerUI演示")
                 .description("mall")
-                .contact(new Contact("tangming", "github.com/tangming579", "888888"))
-                .version("1.0")
+                //.contact(new Contact("tangming", "github.com/tangming579", "888888"))
+                .version("1.0.0")
                 .build();
     }
 

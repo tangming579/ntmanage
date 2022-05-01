@@ -24,7 +24,7 @@ import java.util.List;
  * @author tm
  * @since 2022-03-22
  */
-@Api(tags = "PmsBrandController", description = "商品品牌管理")
+@Api(tags = "商品品牌管理")
 @RestController
 @RequestMapping("/mall/pmsBrand")
 public class PmsBrandController {

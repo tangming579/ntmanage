@@ -21,7 +21,7 @@ import java.util.Map;
  * 后台用户管理
  */
 @Controller
-@Api(tags = "UmsAdminController", description = "后台用户管理")
+@Api(tags = "后台用户管理")
 @RequestMapping("/admin")
 public class UmsAdminController {
     @Autowired

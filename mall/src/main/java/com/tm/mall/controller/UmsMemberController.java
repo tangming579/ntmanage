@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * 会员登录注册管理Controller
  */
 @Controller
-@Api(tags = "UmsMemberController", description = "会员登录注册管理")
+@Api(tags = "会员登录注册管理")
 @RequestMapping("/sso")
 public class UmsMemberController {
     @Autowired
