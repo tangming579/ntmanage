@@ -75,7 +75,7 @@ public class MyBatisPlusGenerator {
      * 初始化数据源配置
      */
     private static DataSourceConfig initDataSourceConfig() {
-        Props props = new Props("generator.properties");
+        Props props = new Props("mybatis-plus-generator.properties");
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setUrl(props.getStr("dataSource.url"));
         dataSourceConfig.setDriverName(props.getStr("dataSource.driverName"));
@@ -88,7 +88,7 @@ public class MyBatisPlusGenerator {
      * 初始化包配置
      */
     private static PackageConfig initPackageConfig(String moduleName) {
-        Props props = new Props("generator.properties");
+        Props props = new Props("mybatis-plus-generator.properties");
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setModuleName(moduleName);
         packageConfig.setParent(props.getStr("package.base"));
