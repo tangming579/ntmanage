@@ -1,7 +1,7 @@
 package com.tm.mall.mbg.mapper;
 
-import com.tm.mall.mbg.model.UmsRole;
 import com.tm.mall.mbg.model.UmsRoleExample;
+import com.tm.mall.mbg.model.UmsRole;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

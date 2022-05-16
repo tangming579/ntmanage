@@ -18,6 +18,11 @@ spring:
     port: 6379 # Redis服务器连接端口
     password: # Redis服务器连接密码（默认为空）
     timeout: 3000ms # 连接超时时间（毫秒）
+    key:
+      prefix:
+        authCode: "portal:authCode:"
+      expire:
+        authCode: 120 # 验证码超期时间
 
 logging:
   file:
@@ -25,3 +30,18 @@ logging:
   level:
     root: info
     com.tm.mall: info
+swagger:
+  basic:
+    enable: true     // 启用
+    username: admin
+    password: admin
+# 自定义jwt key
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mySecret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24)
+  tokenHead: Bearer  #JWT负载中拿到开头
+mybatis:
+  mapper-locations:
+    - classpath:com/**/dao/*.xml
+    - classpath*:com/**/mapper/*.xml

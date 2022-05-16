@@ -3,6 +3,7 @@ package com.tm.mall.mbg.mapper;
 import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.mbg.model.PmsBrandExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface PmsBrandMapper {

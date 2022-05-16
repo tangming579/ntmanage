@@ -1,7 +1,7 @@
 package com.tm.mall.mbg.mapper;
 
-import com.tm.mall.mbg.model.UmsAdminPermissionRelation;
 import com.tm.mall.mbg.model.UmsAdminPermissionRelationExample;
+import com.tm.mall.mbg.model.UmsAdminPermissionRelation;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
