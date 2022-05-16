@@ -1,6 +1,7 @@
 package com.tm.mall.dao;
 
 import com.tm.mall.mbg.model.UmsPermission;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
