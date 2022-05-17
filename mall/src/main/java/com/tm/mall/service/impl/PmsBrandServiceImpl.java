@@ -1,5 +1,7 @@
 package com.tm.mall.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.tm.mall.common.api.CommonPage;
 import com.tm.mall.mbg.mapper.PmsBrandMapper;
 import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.mbg.model.PmsBrandExample;
@@ -16,10 +18,14 @@ public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Override
     public List<PmsBrand> listAllBrand() {
+        return mapper.selectByExample(new PmsBrandExample());
+    }
 
-        var example=new PmsBrandExample();
-        var criteria=example.createCriteria();
-        return mapper.selectByExample(example);
+    @Override
+    public CommonPage listPageBrand(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<PmsBrand> list = mapper.selectByExample(new PmsBrandExample());
+        return CommonPage.restPage(list);
     }
 
     @Override
@@ -35,11 +41,6 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public int deleteBrand(Long id) {
         return 0;
-    }
-
-    @Override
-    public List<PmsBrand> listBrand(int pageNum, int pageSize) {
-        return null;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.tm.mall.controller;
 
+import com.tm.mall.common.api.CommonPage;
 import com.tm.mall.common.api.CommonResult;
 import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.service.PmsBrandService;
@@ -26,5 +27,12 @@ public class PmsBrandController {
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(brandService.listAllBrand());
+    }
+
+    @ApiOperation("分页获取品牌列表")
+    @RequestMapping(value = "getBrandListByPage", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<List<PmsBrand>>> getBrandListByPage(int pageNum, int pageSize) {
+        return CommonResult.success(brandService.listPageBrand(pageNum, pageSize));
     }
 }
