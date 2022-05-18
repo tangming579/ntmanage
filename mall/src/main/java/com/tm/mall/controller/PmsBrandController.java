@@ -53,14 +53,36 @@ public class PmsBrandController {
     @ApiOperation("删除品牌")
     @RequestMapping(value = "deleteBrand", method = RequestMethod.DELETE)
     @ResponseBody
-    public CommonResult deleteBrand(Long id){
+    public CommonResult deleteBrand(Long id) {
         CommonResult result;
         int count = brandService.deleteBrand(id);
         if (count == 1) {
             result = CommonResult.success(null);
         } else {
-            result = CommonResult.failed("创建失败");
+            result = CommonResult.failed("操作失败");
         }
         return result;
+    }
+
+    @ApiOperation("更新品牌")
+    @RequestMapping(value = "updateBrand", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult updateBrand(PmsBrand brand) {
+        CommonResult result;
+        int count = brandService.updateBrand(brand.getId(), brand);
+        if (count == 1) {
+            result = CommonResult.success(null);
+        } else {
+            result = CommonResult.failed("操作失败");
+        }
+        return result;
+    }
+
+    @ApiOperation("获取指定品牌详情")
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult brand(Long id){
+        PmsBrand brand = brandService.getBrand(id);
+        return CommonResult.success(brand);
     }
 }
