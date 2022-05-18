@@ -30,21 +30,22 @@ public class PmsBrandServiceImpl implements PmsBrandService {
 
     @Override
     public int createBrand(PmsBrand brand) {
-        return 0;
+        return mapper.insertSelective(brand);
     }
 
     @Override
     public int updateBrand(Long id, PmsBrand brand) {
-        return 0;
+        brand.setId(id);
+        return mapper.updateByPrimaryKeySelective(brand);
     }
 
     @Override
     public int deleteBrand(Long id) {
-        return 0;
+        return mapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
-        return null;
+        return mapper.selectByPrimaryKey(id);
     }
 }
