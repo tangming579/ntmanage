@@ -5,6 +5,7 @@ import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
 import com.tm.mall.dto.OperationLog;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -31,8 +32,8 @@ import java.util.Map;
 @Aspect
 @Component
 @Order(1)
+@Slf4j
 public class OperationLogAspect {
-    private static final Logger LOGGER = LoggerFactory.getLogger(OperationLogAspect.class);
 
     @Pointcut("execution(public * com.tm.mall.controller.*.*(..))")
     public void operationLog() {
@@ -45,7 +46,7 @@ public class OperationLogAspect {
     @AfterReturning(value = "operationLog()", returning = "ret")
     public void doAfterReturning(Object ret) throws Throwable {
     }
-    @Around("webLog()")
+    @Around("operationLog()")
     public Object doAround(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         //获取当前请求对象
@@ -72,7 +73,7 @@ public class OperationLogAspect {
         operationLog.setStartTime(startTime);
         operationLog.setUri(request.getRequestURI());
         operationLog.setUrl(request.getRequestURL().toString());
-        LOGGER.info("{}", JSONUtil.parse(operationLog));
+        log.info("{}", JSONUtil.parse(operationLog));
         return result;
     }
     /**

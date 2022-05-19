@@ -7,6 +7,7 @@ import com.tm.mall.mbg.model.UmsPermission;
 import com.tm.mall.service.UmsAdminService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import java.util.Map;
 @Controller
 @Api(tags = "后台用户管理")
 @RequestMapping("/admin")
+@Slf4j
 public class UmsAdminController {
     @Autowired
     private UmsAdminService adminService;

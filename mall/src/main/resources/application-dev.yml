@@ -26,7 +26,7 @@ spring:
 
 logging:
   file:
-    path: /var/logs
+    path: logs
   level:
     root: info
     com.tm.mall: info

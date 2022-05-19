@@ -6,6 +6,7 @@ import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.service.PmsBrandService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/brand")
 @Api(tags = "商品品牌管理")
+@Slf4j
 public class PmsBrandController {
 
     @Autowired
@@ -82,6 +84,7 @@ public class PmsBrandController {
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     @ResponseBody
     public CommonResult brand(Long id){
+        log.info("获取指定品牌详情，id={}",id);
         PmsBrand brand = brandService.getBrand(id);
         return CommonResult.success(brand);
     }

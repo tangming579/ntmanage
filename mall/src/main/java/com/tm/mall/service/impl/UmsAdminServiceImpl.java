@@ -7,6 +7,7 @@ import com.tm.mall.mbg.model.UmsAdmin;
 import com.tm.mall.mbg.model.UmsAdminExample;
 import com.tm.mall.mbg.model.UmsPermission;
 import com.tm.mall.service.UmsAdminService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -28,8 +29,9 @@ import java.util.List;
  * UmsAdminService实现类
  */
 @Service
+@Slf4j
 public class UmsAdminServiceImpl implements UmsAdminService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UmsAdminServiceImpl.class);
+
     @Autowired
     private UserDetailsService userDetailsService;
     @Autowired
@@ -86,7 +88,7 @@ public class UmsAdminServiceImpl implements UmsAdminService {
             SecurityContextHolder.getContext().setAuthentication(authentication);
             token = jwtTokenUtil.generateToken(userDetails);
         } catch (AuthenticationException e) {
-            LOGGER.warn("登录异常:{}", e.getMessage());
+            log.warn("登录异常:{}", e.getMessage());
         }
         return token;
     }
