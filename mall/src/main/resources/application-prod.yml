@@ -25,6 +25,7 @@ spring:
         authCode: 120 # 验证码超期时间
 
 logging:
+  config: log4j2-spring.xml
   file:
     path: logs
   level:
