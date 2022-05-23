@@ -59,7 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/v2/api-docs/**",
                         "/v3/api-docs/**",
                         "/swagger*",
-                        "/webjars/springfox-swagger-ui/**"
+                        "/webjars/springfox-swagger-ui/**",
+                        "/actuator/health"
                 )
                 .permitAll()
                 .antMatchers(HttpMethod.OPTIONS)//跨域请求会先进行一次options请求
