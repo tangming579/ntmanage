@@ -22,6 +22,7 @@
         <mybatis-gererator.version>1.3.7</mybatis-gererator.version>
         <pagehelper.version>1.2.10</pagehelper.version>
         <velocity.version>2.2</velocity.version>
+        <skywalking.version>8.6.0</skywalking.version>
     </properties>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -174,6 +175,11 @@
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>${pagehelper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-log4j-2.x</artifactId>
+            <version>${skywalking.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.xml.bind</groupId>

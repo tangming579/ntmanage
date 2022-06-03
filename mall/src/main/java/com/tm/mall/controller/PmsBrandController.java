@@ -2,6 +2,7 @@ package com.tm.mall.controller;
 
 import com.tm.mall.common.api.CommonPage;
 import com.tm.mall.common.api.CommonResult;
+import com.tm.mall.dto.PmsBrandParam;
 import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.service.PmsBrandService;
 import io.swagger.annotations.Api;
@@ -9,10 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,11 +38,11 @@ public class PmsBrandController {
 
     @ApiOperation("创建品牌")
     @RequestMapping(value = "createBrand", method = RequestMethod.POST)
-    public CommonResult createBrand(PmsBrand brand) {
+    public CommonResult createBrand(@Validated @RequestBody PmsBrandParam pmsBrand) {
         CommonResult result;
-        int count = brandService.createBrand(brand);
+        int count = brandService.createBrand(pmsBrand);
         if (count == 1) {
-            result = CommonResult.success(brand);
+            result = CommonResult.success(pmsBrand);
         } else {
             result = CommonResult.failed("创建失败");
         }

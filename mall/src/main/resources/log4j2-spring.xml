@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration monitorInterval="5">
+<configuration monitorInterval="5" packages="org.apache.skywalking.apm.toolkit.log.log4j.v2.x">
     <!--变量配置-->
     <Properties>
         <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
         <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
-        <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS}  %-5level [%thread] %logger{36} - %msg%n" />
+        <property name="LOG_PATTERN" value="%date{yyyy-MM-dd HH:mm:ss.SSS}  %-5level [%thread] [%traceId] %logger{36} - %msg%n" />
         <!-- 定义日志存储的路径 -->
         <property name="FILE_PATH" value="logs/" />
         <property name="FILE_NAME" value="mall" />

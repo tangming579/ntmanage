@@ -2,12 +2,15 @@ package com.tm.mall.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.tm.mall.common.api.CommonPage;
+import com.tm.mall.dto.PmsBrandParam;
 import com.tm.mall.mbg.mapper.PmsBrandMapper;
 import com.tm.mall.mbg.model.PmsBrand;
 import com.tm.mall.mbg.model.PmsBrandExample;
 import com.tm.mall.service.PmsBrandService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -29,8 +32,14 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     }
 
     @Override
-    public int createBrand(PmsBrand brand) {
-        return mapper.insertSelective(brand);
+    public int createBrand(PmsBrandParam pmsBrandParam) {
+        PmsBrand pmsBrand = new PmsBrand();
+        BeanUtils.copyProperties(pmsBrandParam, pmsBrand);
+        //如果创建时首字母为空，取名称的第一个为首字母
+        if (StringUtils.isEmpty(pmsBrand.getFirstLetter())) {
+            pmsBrand.setFirstLetter(pmsBrand.getName().substring(0, 1));
+        }
+        return mapper.insertSelective(pmsBrand);
     }
 
     @Override
